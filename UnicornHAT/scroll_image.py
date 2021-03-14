@@ -34,8 +34,8 @@ with Image.open(sys.argv[1]) as im:
 
 
 unicornhathd.brightness(0.5)
-for x in range(16):
-    for y in range(16):
+for y in range(16):
+    for x in range(16):
         srcPx = src[x, y]
         red = srcPx[0]
         green = srcPx[1]
