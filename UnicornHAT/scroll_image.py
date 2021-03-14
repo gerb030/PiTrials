@@ -8,11 +8,36 @@ import itertools
 import PIL
 
 unicornhathd.rotation(270)
+unicornhathd.brightness(0.8)
 
+def scroll_in(src, steps, wait):
+    for fade in range(steps):
+        for x in range(16):
+            for y in range(16):
+                srcPx = src[x, y]
+                red = srcPx[0] / steps * fade
+                green = srcPx[1] / steps * fade
+                blue = srcPx[2] / steps * fade
+                unicornhathd.set_pixel(x, y, red, green, blue)
+        unicornhathd.show() 
+        time.sleep(wait)                           
+
+def fade_out(src, steps, wait):
+    for fade in range(steps):
+        for x in range(16):
+            for y in range(16):
+                srcPx = src[x, y]
+                red = srcPx[0] - (srcPx[0] / steps * fade)
+                green = srcPx[1] - (srcPx[1] / steps * fade)
+                blue = srcPx[2] - (srcPx[2] / steps * fade)
+                unicornhathd.set_pixel(x, y, red, green, blue)
+        unicornhathd.show() 
+        time.sleep(wait)                           
 
 from PIL import Image
 with Image.open(sys.argv[1]) as im:
     src = im.load()
+
     xsize, ysize = im.size
 
     if xsize != ysize:
@@ -32,21 +57,10 @@ with Image.open(sys.argv[1]) as im:
         im.thumbnail([16, 16])
         src = im.load()
 
+scroll_in(src, 16, 0)
+time.sleep(2)
+scroll_out(src, 16, 0.04)
+unicornhathd.off()
 
-unicornhathd.brightness(0.5)
-for y in range(16):
-    for x in range(16):
-        srcPx = src[x, y]
-        red = srcPx[0]
-        green = srcPx[1]
-        blue = srcPx[2]
-        unicornhathd.set_pixel(x, y, red, green, blue)
-unicornhathd.show()                            
-time.sleep(5)
 
-try:
-    while True:
-        time.sleep(1)
 
-except KeyboardInterrupt:
-    unicornhathd.off()
