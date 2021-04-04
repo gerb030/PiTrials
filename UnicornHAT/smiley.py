@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import unicornhathd
 import time
@@ -6,13 +6,9 @@ import colorsys
 import numpy
 import itertools
 
-print("""Unicorn HAT HD: Heart Beats
+print("""Unicorn HAT HD: smiley
 
-Displaying a beating heart...
-
-Your Unicorn HAT HD loves you.
-
-<3
+Displaying a smiley face
 
 Press Ctrl+C to exit!
 

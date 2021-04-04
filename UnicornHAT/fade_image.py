@@ -57,9 +57,9 @@ with Image.open(sys.argv[1]) as im:
         im.thumbnail([16, 16])
         src = im.load()
 
-fade_in(src, 16, 0)
+fade_in(src, 16, 0.03)
 time.sleep(2)
-fade_out(src, 16, 0.04)
+fade_out(src, 16, 0.03)
 unicornhathd.off()
 
 
