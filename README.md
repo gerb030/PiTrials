@@ -1,7 +1,7 @@
 # PiTrials
 
-This project contains some trial code I've been writing for the Raspberry Pi.
-
+This project contains some trial code I've been writing for the Raspberry Pi. This directory contains a bunch of Python scripts that require the Pimoroni Unicorn HAT.
+ 
 ## UnicornHAT
 
 The [Unicorn HAT](https://github.com/pimoroni/unicorn-hat) is fun little square matrix LED display. The scripts in this directory require Python 3.
@@ -32,3 +32,4 @@ sudo reboot
 ```
 python3 -m pip install Pillow
 ```
+
